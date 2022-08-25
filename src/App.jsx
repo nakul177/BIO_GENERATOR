@@ -14,7 +14,7 @@ function App() {
     religion:"Hindu",
     meeting:"just conversation",
     gender:"male",
-    image:"./profile-png-icon-2.png"
+    image:"../public/download.png"
 
   })
 
@@ -51,35 +51,33 @@ function App() {
 
  
   const generateRandomSchool = () => {
-    let schoolArray = ["SCSMV", "sant tukaram school", "rayat school", "GMVIT"];
+    let schoolArray = ["A.k school", "Loins school", "St'n school", "HUPM"];
     setData(schoolArray[Math.floor(Math.random() * 4)]);
-    console.log();
   };
   const generateRandomName = () => {
-    let schoolArray = ["Parag", "Sattya", "Deva", "Rupesh"];
+    let schoolArray = ["Akasha", "Navin", "Dev", "Ruhul"];
     setData(schoolArray[Math.floor(Math.random() * 4)]);
   };
 
   const generateRandomSpecialization = () => {
-    let schoolArray = ["Science", "Arts", "commerce", "Socialscience"];
+    let schoolArray = ["Science", "Arts", "commerce", "businessmengetn"];
     setData(schoolArray[Math.floor(Math.random() * 4)]);
   };
 
   const generateRandomLocation = () => {
-    let schoolArray = ["Pune", "Mumbai", "Nagpur", "Raigad"];
+    let schoolArray = ["Nagpur", "Mumbai", "Pune", "Akola"];
     setData(schoolArray[Math.floor(Math.random() * 4)]);
-    console.log();
+
   };
 
   const generateRandomOccupation = () => {
-    let OccuptionArray = ["Engineer", "Developer", "businessman", "Politacian"];
+    let OccuptionArray = ["Engineer", "Developer","Politacian","UPSC"];
     setData(OccuptionArray[Math.floor(Math.random() * 4)]);
-    console.log();
   };
   const generateRandomReligion = () => {
     let religionArray = ["Hindu", "sikh", "jain", "Buddhist"];
     setData(religionArray[Math.floor(Math.random() * 4)]);
-    console.log();
+    
   };
 
   const photoUpload = (e) => {
@@ -264,13 +262,13 @@ function App() {
             .
             {isCheckedOccuption
               ? `${
-                  data.gender == "male" ? " His" : " Her"
+                  data.gender === "male" ? " His" : " Her"
                 } occupation is ${data.occupation}`
               : null}
             {isCheckedReligion
-              ? `${data.gender == "male" ? " His" : " Her"} religion is ${data.religion}`
+              ? `${data.gender === "male" ? " His" : " Her"} religion is ${data.religion}`
               : null}{" "}
-            {data.gender == "male" ? "He" : "She"}{" "}
+            {data.gender === "male" ? "He" : "She"}{" "}
             {isChecked ? `meet you for ${data.meeting}` : null}
           </div>
         </div>
