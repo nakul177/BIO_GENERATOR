@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  margin: 1rem;
-  font-size: 30px;
+  margin:1rem;
+  
 }
 
 .container {
@@ -21,50 +21,57 @@
 .option {
   max-width: 600px;
   margin: 1rem;
+  
 }
 
 .result {
   max-width: 600px;
-  margin: 1rem;
+  margin:1rem;
+  
 }
 
-.box {
-  background-color: #e0ebe4;
+
+
+
+
+.box{
+  background-color: #E0EBE4;
   padding: 1rem;
   margin: 1rem;
   background-color: #2223;
 }
-.heading {
-  background-color: brown;
+.heading{
+  background-color: rebeccapurple;
   margin-bottom: 1rem;
   color: #222;
   margin: 0;
 }
-.imagediv {
+.imagediv{
   border-radius: 100%;
   height: 200px;
-  width: 200px;
-  border: 1px solid black;
-  margin: auto;
+  width:200px;
+  border:1px solid black;
+  margin:auto
+
 }
-.imagediv > img {
-  width: 100%;
+.imagediv >img{
+  width:100%;
   height: 100%;
   border-radius: 100%;
   box-sizing: content-box;
 }
-.textarea {
+.meeting{
   padding: 3px;
-  width: 100%;
-  height: 5rem;
-  margin-top: 5px;
-  background-color: #fff7;
-  color: #222;
-  margin: 0;
+width: 100%;
+height: 5rem;
+margin-top: 5px;
+background-color: #fff7;
+color: #222;
+margin: 0;
 }
-.selectbutton {
+.selectbutton{
   padding: 3px;
-  margin: 5px;
-  border: 1px solid;
-  transition: 0.3s;
+margin: 5px;
+border: 1px solid;
+transition: .3s;
 }
