@@ -4,16 +4,19 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [name, setName] = useState("Parag");
-  const [location, setLocation] = useState("vasheni");
-  const [stream, setStream] = useState("Engineering");
-  const [school, setSchool] = useState("GMVIT");
-  const [occupation, setOccupation] = useState("Engineer");
-  const [religion, setReligion] = useState("Hindu");
-  const [meeting, setMeeting] = useState("just conversation");
-  const [image, setimage] = useState("./profile-png-icon-2.png");
-  const [gender, setGender] = useState("male");
+ 
+  const [data , setData] = useState({
+    name:"Nakul",
+    location:"khamgaon",
+    stream:"hotel management",
+    school:"UEI Gobal",
+    occupation:"Hotel",
+    religion:"Hindu",
+    meeting:"just conversation",
+    gender:"male",
+    image:"./profile-png-icon-2.png"
 
+  })
 
 
   
@@ -23,8 +26,10 @@ function App() {
   const [isCheckedReligion, setIsCheckedReligion] = useState(true);
   const [isCheckedSchool, setIsCheckedSchool] = useState(true);
 
-  const handleInputName = (e) => {
-    setName(e.target.value);
+  const handleInput = (e) => {
+     const {className , value} = e.target
+
+     setData({...data , [className]:value})
   };
   const handleOnChange = () => {
     setIsChecked(!isChecked);
@@ -42,61 +47,38 @@ function App() {
     setIsCheckedSchool(!isCheckedSchool);
   };
 
-  const handleInputLocation = (e) => {
-    setLocation(e.target.value);
-  };
+ 
 
-  const handleInputStream = (e) => {
-    setStream(e.target.value);
-  };
-
-  const handleInputSchool = (e) => {
-    setSchool(e.target.value);
-  };
-  const handleInputAge = (e) => {
-    setSelectionRange(e.target.value);
-  };
-  const handleOccupation = (e) => {
-    setOccupation(e.target.value);
-  };
-  const handleReligion = (e) => {
-    setReligion(e.target.value);
-  };
-  const handleMeeting = (e) => {
-    setMeeting(e.target.value);
-  };
-  const handleGender = (e) => {
-    setGender(e.target.value);
-  };
+ 
   const generateRandomSchool = () => {
     let schoolArray = ["SCSMV", "sant tukaram school", "rayat school", "GMVIT"];
-    setSchool(schoolArray[Math.floor(Math.random() * 4)]);
+    setData(schoolArray[Math.floor(Math.random() * 4)]);
     console.log();
   };
   const generateRandomName = () => {
     let schoolArray = ["Parag", "Sattya", "Deva", "Rupesh"];
-    setName(schoolArray[Math.floor(Math.random() * 4)]);
+    setData(schoolArray[Math.floor(Math.random() * 4)]);
   };
 
   const generateRandomSpecialization = () => {
     let schoolArray = ["Science", "Arts", "commerce", "Socialscience"];
-    setStream(schoolArray[Math.floor(Math.random() * 4)]);
+    setData(schoolArray[Math.floor(Math.random() * 4)]);
   };
 
   const generateRandomLocation = () => {
     let schoolArray = ["Pune", "Mumbai", "Nagpur", "Raigad"];
-    setLocation(schoolArray[Math.floor(Math.random() * 4)]);
+    setData(schoolArray[Math.floor(Math.random() * 4)]);
     console.log();
   };
 
   const generateRandomOccupation = () => {
     let OccuptionArray = ["Engineer", "Developer", "businessman", "Politacian"];
-    setOccupation(OccuptionArray[Math.floor(Math.random() * 4)]);
+    setData(OccuptionArray[Math.floor(Math.random() * 4)]);
     console.log();
   };
   const generateRandomReligion = () => {
     let religionArray = ["Hindu", "sikh", "jain", "Buddhist"];
-    setReligion(religionArray[Math.floor(Math.random() * 4)]);
+    setData(religionArray[Math.floor(Math.random() * 4)]);
     console.log();
   };
 
@@ -104,7 +86,7 @@ function App() {
     const reader = new FileReader();
     const file = e.target.files[0];
     reader.onloadend = () => {
-      setimage(reader.result);
+      setData(reader.result);
       this.setState({
         file: file,
         imagePreviewUrl: reader.result,
@@ -112,7 +94,7 @@ function App() {
     };
     reader.readAsDataURL(file);
   };
-  console.log(gender);
+
 
   return (
     <div className="App" id="app">
@@ -128,13 +110,14 @@ function App() {
           <div className="box">
             <label>Name</label>
             <input
+            className="name"
               type="text"
-              value={name}
+              value={data.name}
               placeholder="Enter name"
-              onChange={handleInputName}
+              onChange={handleInput}
             />
             <label>Gender</label>
-            <select onChange={(e) => handleGender(e)}>
+            <select onChange={handleInput} className="gender">
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -149,9 +132,10 @@ function App() {
             ></input>
             <label>Location</label>
             <input
+            className="location"
               type="text"
-              value={location}
-              onChange={handleInputLocation}
+              value={data.location}
+              onChange={handleInput}
             ></input>
             <button onClick={generateRandomLocation}>Random Location</button>
           </div>
@@ -164,17 +148,19 @@ function App() {
             ></input>
             <label>School</label>
             <input
+            className="schoo;"
               type="text"
-              value={school}
-              onChange={handleInputSchool}
+              value={data.school}
+              onChange={handleInput}
             ></input>
             <button onClick={generateRandomSchool}>Random School</button>
             <br />
             <label>Specialization</label>
             <input
+            className="stream"
               type="text"
-              value={stream}
-              onChange={handleInputStream}
+              value={data.stream}
+              onChange={handleInput}
             ></input>
             <button onClick={generateRandomSpecialization}>
               Random Specialization
@@ -189,9 +175,10 @@ function App() {
             ></input>
             <label>Occupation</label>
             <input
+            className="occupation"
               type="text"
-              value={occupation}
-              onChange={handleOccupation}
+              value={data.occupation}
+              onChange={handleInput}
             ></input>
             <button onClick={generateRandomOccupation}>
               Random Occupation
@@ -208,8 +195,9 @@ function App() {
             <textarea
               rows="5"
               cols="20"
-              value={religion}
-              onChange={handleReligion}
+              className="religion"
+              value={data.religion}
+              onChange={handleInput}
             ></textarea>
             <button onClick={generateRandomReligion}>Random religion</button>
           </div>
@@ -232,27 +220,27 @@ function App() {
               meeting reason
             </label>
             <textarea
-              className="textarea"
+              className="meeting"
               rows="5"
               cols="20"
-              value={meeting}
-              onChange={handleMeeting}
+              value={data.meeting}
+              onChange={handleInput}
             ></textarea>
             <button
               className="selectbutton"
-              onClick={() => setMeeting("for peace of mind")}
+              onClick={() => setData("for peace of mind")}
             >
               For peace
             </button>
             <button
               className="selectbutton"
-              onClick={() => setMeeting("for personal reason")}
+              onClick={() => setData("for personal reason")}
             >
               For personal reason
             </button>
             <button
               className="selectbutton"
-              onClick={() => setMeeting("for payer to fill energetic ")}
+              onClick={() => setData("for payer to fill energetic ")}
             >
               For prayer
             </button>
@@ -263,27 +251,27 @@ function App() {
           <h2 className="box">Result</h2>
 
           <div className="imagediv">
-            {image ? <img src={image} alt="profile photo" /> : null}
+            {data.image ? <img src={data.image} alt="profile photo" /> : null}
           </div>
 
           <div className="box">
-            {name} {isCheckedLocation ? `is from the ${location}` : null}{" "}
+            {data.name} {isCheckedLocation ? `is from the ${data.location}` : null}{" "}
             {isCheckedSchool
               ? `${
-                  gender == "male" ? "He" : "She"
-                } is studying ${stream} at ${school}`
+                  data.gender == "male" ? "He" : "She"
+                } is studying ${data.stream} at ${data.school}`
               : null}
             .
             {isCheckedOccuption
               ? `${
-                  gender == "male" ? " His" : " Her"
-                } occupation is ${occupation}`
+                  data.gender == "male" ? " His" : " Her"
+                } occupation is ${data.occupation}`
               : null}
             {isCheckedReligion
-              ? `${gender == "male" ? " His" : " Her"} religion is ${religion}`
+              ? `${data.gender == "male" ? " His" : " Her"} religion is ${data.religion}`
               : null}{" "}
-            {gender == "male" ? "He" : "She"}{" "}
-            {isChecked ? `meet you for ${meeting}` : null}
+            {data.gender == "male" ? "He" : "She"}{" "}
+            {isChecked ? `meet you for ${data.meeting}` : null}
           </div>
         </div>
       </div>
