@@ -9,7 +9,7 @@
   width: 100%;
   margin: auto;
   justify-content: center;
-  flex-wrap: wrap;
+
 }
 
 .education {
@@ -21,6 +21,7 @@
 .option {
   max-width: 600px;
   margin: 1rem;
+ 
   
 }
 
